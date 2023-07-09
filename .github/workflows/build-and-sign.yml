@@ -120,17 +120,6 @@ jobs:
         body_path: ./KitchenLib/Changelogs/${{ github.event.inputs.releaseversion }}/Github/v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.MD
         draft: false
         prerelease: ${{ !(github.event.inputs.betaversion == '') }}
-        
-   # Download Artifact
-    - name: Download artifact
-      id: download-artifact
-      uses: dawidd6/action-download-artifact@v2
-      with:
-          workflow: build-and-sign.yml
-          branch: ${{ github.ref_name }}
-          path: build
-          name: KitchenLib-Build
-          skip_unpack: true
           
     # Upload Release Files
     - name: Upload Release Files
